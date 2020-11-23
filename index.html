@@ -14,7 +14,7 @@
 		}
 		.header {
 			overflow: hidden;
-			background-color: black;
+			background-color: black;	
 			padding: 20px 10px;
         	border-bottom-left-radius: 25px;
         	border-bottom-right-radius: 25px;
@@ -39,6 +39,7 @@
 		.header a.logo {
 			font-size: 25px;
 			color: white;
+			display: inline-block;
 
 
 		}
@@ -48,9 +49,10 @@
 			color: white;
 		}
 		.container {
-			display: inline-block;
 			cursor: pointer;
+			display: inline-block;
 			float: left;
+
 		}
 
 		.bar1, .bar2, .bar3 {
@@ -82,6 +84,7 @@
 			top: 0;
 			left: 0;
 			background-color: #000000;
+			opacity: 90%;
 			overflow-x: hidden;
 			transition: 0.5s;
 			padding-top: 60px;
@@ -90,6 +93,7 @@
 		.sidebar a {
 			padding: 8px 8px 8px 32px;
 			text-decoration: none;
+
 			font-size: 25px;
 			color: #818181;
 			display: block;
@@ -153,11 +157,54 @@
         	border-top-left-radius: 25px;
         	border-top-right-radius: 25px;
 }
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  border-right: 16px solid green;
+  border-bottom: 16px solid red;
+  border-left: 16px solid yellow;
+  width: 80px;
+  height: 80px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  margin-left: 620px;
+  margin-top: 150px;
+ 
+}
+.log {
+	color: white;
+	margin-top: 175px;
+	margin-left: 540px;
+	font-size: 60px;
+}
+.box {
+	background-color: black;
+	width: 1325px;
+	height: 900px;
+	position: fixed;
+	
+
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
 	</style>
 </head>
 <body>
+	<div class="box"><p class="log">Loading.....</p><div class="loader"></div></div>
+	<div>
 <div class="header" id="header">
-<div id="main" class="logo" onclick="openNav()" >
+<div id="main" class="container" onclick="openNav()" >
   <div class="bar1"></div>
   <div class="bar2"></div>
   <div class="bar3"></div>
@@ -168,7 +215,12 @@
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
 	<a href="/about">Cooking Leagacy</a>
 	<a href="/contact">Pilgrimage</a>
-	<a href="/services"></a>
+	<a href="/services">Musical Backgorund</a>
+	<a href="/">Famous Religous Preachers</a>
+	<a href="/">Sports</a>
+	<a href="/">Tribal History</a>
+	<a href="/">Rules and Regulations</a>
+	<a href="/">Origanic Chemistry</a>
 </div>
 		<div class="timebox">
 			<div style="text-align:center;padding:1em 0; margin-left: 10px;font-size: 20px;"> <h2><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/en/city/1271631"><span style="color:black;">Current local time in Sikkim:</span></a></h2> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=large&timezone=Asia%2FKolkata" width="100%" height="140" frameborder="0" seamless></iframe> </div>
@@ -181,6 +233,8 @@
 	<h3 style="margin-left: 20px;margin-top: 70px;">About Sikkim</h3>
 	<p  style="font-size: 20px; margin-left: 20px;margin-right: 20px;">	<img src="back8.jpg" width="450" height="200" align="right" style="float: right;">Sikkim is a small state located in the North-East of India. Sikkim is the least populated and second smallest state of India. It borders, Tibet, Bhutan and Nepal. Sikkim is also known for its biodiversity and its subtropical climate. India's highest mountain peak, Kangchenjunga resides in Sikkim. The capital city of Sikkim is Gangtok. The Khangchendzonga National Park of Sikkim  has been awarded with UNESCO World Heritage Site. Official languages of Sikkim are  </p>
 </div>
+</div>
+
 <script>
 function openNav() {
 	document.getElementById("mySidebar").style.width = "250px";
@@ -192,6 +246,16 @@ function closeNav() {
 	document.getElementById('mySidebar').style.width = "0";
 
 }
+window.addEventListener("load", function() {
+	const loader = document.querySelector(".loader");
+	const log = document.querySelector(".log");
+	const box = document.querySelector(".box");
+	loader.className += "hidden";
+	box.className += "hidden";
+	log.className += "hidden";
+
+
+});
 </script>
 </body>
 </html>
